@@ -2,7 +2,11 @@
 
 **Formål:** Træning i metoder (uden/med parametre, return-værdier) og simple klasser med objekter.
 
-**Tidsramme:** Ca. 6 timer
+Husk at opsøge hjælp hos tutorer og klassekamerater, hvis du går i stå.
+Lav så meget du kan nå på en almindelig arbejdsdag (fokuseret arbejde i 4-6 timer).
+Hvis du bliver hurtigt færdig, husk at kigge på iteration 3 og iteration 4 i din [SP1 opgave](https://1sem.kursusmaterialer.dk/projects/SP1/).
+
+
 
 ## Opgaver
 1. [Bank-konto](#opgave-1-bank-konto)
