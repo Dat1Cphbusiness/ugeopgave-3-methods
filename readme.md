@@ -1,11 +1,11 @@
-# Ugeopgave: Metoder og Objekter
+# Ugeopgave: Metoder
 
-**Formål:** Træning i metoder (uden/med parametre, return-værdier) og simple klasser med objekter.
+
+**Formål:** Træning i metoder (uden/med parametre, return-værdier).
 
 Husk at opsøge hjælp hos tutorer og klassekamerater, hvis du går i stå.
 Lav så meget du kan nå på en almindelig arbejdsdag (fokuseret arbejde i 4-6 timer).
 Hvis du bliver hurtigt færdig, husk at kigge på iteration 3 og iteration 4 i din [SP1 opgave](https://1sem.kursusmaterialer.dk/projects/SP1/).
-
 
 
 ## Opgaver
@@ -13,8 +13,8 @@ Hvis du bliver hurtigt færdig, husk at kigge på iteration 3 og iteration 4 i d
 2. [Karakter-beregner](#opgave-2-karakter-beregner)
 3. [Pris-beregner](#opgave-3-pris-beregner)
 4. [Statistik-beregner](#opgave-4-statistik-beregner)
-5. [Student klasse](#opgave-5-student-klasse)
-6. [Product klasse](#opgave-6-product-klasse)
+5. [Debug](#opgave-5-Debug)
+
 
 ---
 
@@ -403,3 +403,14 @@ public class StatisticsCalculator {
 </details>
 
 ---
+
+## Opgave 5: Debug
+
+I scr folderen finder du en klasse kaldet DebugAssignment. 
+
+Hvis du kører programmet får du en række fejl. Fix programmet så det kan køre.
+
+Outputtet bliver:  
+`7 is the smallest!`
+
+OBS! Skriv hvad du har gjort som kommentar ud for hver linje du fixer
