@@ -37,7 +37,6 @@ Lav et program der simulerer en simpel bankkonto med metoder til at indsætte og
 3. Kald `withdraw50()` én gang
 4. Udskriv saldoen
 
-**Ekstra udfordring:** Lav en metode `deposit200()` og brug Scanner til at spørge brugeren hvor mange gange de vil indsætte 200 kr.
 
 <details>
 <summary>Trin-for-trin guide</summary>
@@ -100,6 +99,14 @@ public class BankAccount {
 
 </details>
 
+
+**Ekstra udfordring:**
+
+- Lav metoden `deposit100()` om til `deposit(double amount)` sådan at den kan indsætte et hvilket som helst beløb.
+- Gør noget tilsvarende med withdraw50().
+- Brug Scanner til at sende brugerens input som argument i kald til deposit metoden.
+
+
 ---
 
 ## Opgave 2: Karakter-beregner
@@ -123,7 +130,6 @@ Lav et program der holder styr på point fra forskellige afleveringer og beregne
 3. Tilføj 30 project points
 4. Udskriv totalen
 
-**Ekstra udfordring:** Lav en metode `getGrade()` der returnerer karakteren baseret på total score (0-50: -3, 51-70: 00, 71-85: 7, 86-100: 12).
 
 <details>
 <summary>Trin-for-trin guide</summary>
@@ -189,6 +195,15 @@ public class GradeCalculator {
 
 </details>
 
+**Ekstra udfordring:** 
+- Lav en mere generisk metode med signaturen: `void addPoints(int points, String type)` hvor points er det antal `point` der skal gives og `type` bruges til at bestemme hvilken variabel 
+der skal tælles op (assignmentPoints, projectPoints eller examPoints).
+- Lav en metode `getTotal`, der lægger de tre globale point variable sammen og returnerer resultatet. 
+- kald metoden `getTotal` i `printTotal` metoden fra før, sådan at `printTotal` udelukkende har ansvar for at printe.
+- Lav en metode `getGrade()` der returnerer karakteren baseret på total score (0-50: -3, 51-70: 00, 71-85: 7, 86-100: 12).
+
+
+
 ---
 
 ## Opgave 3: Pris-beregner
@@ -206,7 +221,6 @@ Lav et program til en webshop der beregner slutprisen på et produkt ved at anve
 3. Tilføj moms
 4. Udskriv slutprisen
 
-**Ekstra udfordring:** Brug Scanner til at lade brugeren indtaste basispris og rabatprocent. Brug en switch-case til at give forskellige rabatter baseret på kundetyper (normal, student, senior).
 
 <details>
 <summary>Trin-for-trin guide</summary>
@@ -220,6 +234,14 @@ Lav et program til en webshop der beregner slutprisen på et produkt ved at anve
 </details>
 
 <details>
+<summary> Forventet output</summary>
+
+`Slutpris med 20% rabat: 500.0 kr`
+</details>
+
+
+<details>
+
 <summary>Se svar</summary>
 
 ```java
@@ -273,6 +295,11 @@ import java.util.Scanner;
 ```
 
 </details>
+
+**Ekstra udfordring:** 
+
+- Brug Scanner til at lade brugeren indtaste basispris og rabatprocent. 
+- Brug en switch-case til at give forskellige rabatter baseret på kundetyper (normal, student, senior).
 
 ---
 
@@ -376,242 +403,3 @@ public class StatisticsCalculator {
 </details>
 
 ---
-
-## Opgave 5: Student klasse
-
-Lav en klasse der repræsenterer studerende og arbejd med flere studerende i et array.
-
-**Student klasse med:**
-- Felter: `name` (String), `age` (int)
-- Constructor der tager name og age
-- Metode: `printInfo()` - udskriver studentens info
-
-**I main:**
-1. Opret 3 studerende med forskellige navne og aldre
-2. Put dem i et array
-3. Brug en løkke til at udskrive info for alle studerende
-4. Find og udskriv den ældste studerende
-
-**Ekstra udfordring:** Tilføj et felt `studentId` (String) til klassen. Lav en metode der finder en studerende baseret på ID.
-
-<details>
-<summary>Trin-for-trin guide</summary>
-
-1. Opret Student.java fil med klassen Student
-2. Lav to felter: name og age
-3. Lav en constructor der modtager name og age som parametre og tildeler dem til felterne
-4. Lav `printInfo()` metode der udskriver navn og alder
-5. I main: opret 3 Student objekter med new
-6. Opret et Student array og læg objekterne ind
-7. Brug for-each løkke til at kalde printInfo() på hver studerende
-8. Brug en løkke med if til at finde den ældste
-
-</details>
-
-<details>
-<summary>Se svar</summary>
-
-```java
-// Student.java
-public class Student {
-    String name;
-    int age;
-    String studentId;
-    
-    public Student(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-    
-    public Student(String name, int age, String studentId) {
-        this.name = name;
-        this.age = age;
-        this.studentId = studentId;
-    }
-    
-    public void printInfo() {
-        System.out.println(name + " er " + age + " år");
-        if (studentId != null) {
-            System.out.println("  ID: " + studentId);
-        }
-    }
-}
-
-// Main.java
-public class Main {
-    
-    Student findOldest(Student[] students) {
-        Student oldest = students[0];
-        for (Student s : students) {
-            if (s.age > oldest.age) {
-                oldest = s;
-            }
-        }
-        return oldest;
-    }
-    
-    Student findById(Student[] students, String id) {
-        for (Student s : students) {
-            if (s.studentId != null && s.studentId.equals(id)) {
-                return s;
-            }
-        }
-        return null;
-    }
-    
-    void main(String[] args) {
-        Student s1 = new Student("Anna", 21);
-        Student s2 = new Student("Peter", 19);
-        Student s3 = new Student("Maria", 23);
-        
-        Student[] students = {s1, s2, s3};
-        
-        System.out.println("Alle studerende:");
-        for (Student s : students) {
-            s.printInfo();
-        }
-        
-        Student oldest = findOldest(students);
-        System.out.println("\nÆldste studerende:");
-        oldest.printInfo();
-        
-        // Ekstra udfordring
-        System.out.println("\n=== Med student ID ===");
-        Student st1 = new Student("Anna", 21, "S001");
-        Student st2 = new Student("Peter", 19, "S002");
-        Student st3 = new Student("Maria", 23, "S003");
-        
-        Student[] studentsWithId = {st1, st2, st3};
-        
-        Student found = findById(studentsWithId, "S002");
-        if (found != null) {
-            System.out.println("Fundet studerende med ID S002:");
-            found.printInfo();
-        }
-    }
-}
-```
-
-</details>
-
----
-
-## Opgave 6: Product klasse
-
-Lav en klasse der repræsenterer produkter i en webshop med tags.
-
-**Product klasse med:**
-- Felter: `name` (String), `price` (double), `tags` (String array)
-- Constructor der tager name, price og tags
-- Metode: `printInfo()` - udskriver produkt info inkl. tags
-- Metode: `hasTag(String tag)` - returnerer true hvis produktet har det tag
-
-**I main:**
-1. Opret 4 produkter med forskellige tags (f.eks. "electronics", "sale", "new")
-2. Put dem i et array
-3. Find og udskriv alle produkter med "sale" tag
-4. Find og udskriv det dyreste produkt
-
-**Ekstra udfordring:** Lav en metode der finder alle produkter inden for et prisinterval (min, max).
-
-<details>
-<summary>Trin-for-trin guide</summary>
-
-1. Opret Product.java med klassen Product
-2. Lav felter for name, price og tags (String array)
-3. Lav constructor der modtager alle tre parametre
-4. Lav `printInfo()` der udskriver navn, pris og løber gennem tags med løkke
-5. Lav `hasTag()` der løber gennem tags array og returnerer true hvis den finder matchet
-6. I main: opret produkter, put i array
-7. Løb gennem array og check hasTag("sale"), udskriv hvis true
-8. Find dyreste produkt med løkke der sammenligner price
-
-</details>
-
-<details>
-<summary>Se svar</summary>
-
-```java
-// Product.java
-public class Product {
-    String name;
-    double price;
-    String[] tags;
-    
-    public Product(String name, double price, String[] tags) {
-        this.name = name;
-        this.price = price;
-        this.tags = tags;
-    }
-    
-    public void printInfo() {
-        System.out.println(name + " - " + price + " kr");
-        System.out.print("  Tags: ");
-        for (int i = 0; i < tags.length; i++) {
-            System.out.print(tags[i]);
-            if (i < tags.length - 1) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println();
-    }
-    
-    public boolean hasTag(String tag) {
-        for (String t : tags) {
-            if (t.equals(tag)) {
-                return true;
-            }
-        }
-        return false;
-    }
-}
-
-// Main.java
-public class Main {
-    
-    Product findMostExpensive(Product[] products) {
-        Product mostExpensive = products[0];
-        for (Product p : products) {
-            if (p.price > mostExpensive.price) {
-                mostExpensive = p;
-            }
-        }
-        return mostExpensive;
-    }
-    
-    void findProductsInPriceRange(Product[] products, double min, double max) {
-        System.out.println("Produkter mellem " + min + " og " + max + " kr:");
-        for (Product p : products) {
-            if (p.price >= min && p.price <= max) {
-                p.printInfo();
-            }
-        }
-    }
-    
-     void main(String[] args) {
-        Product p1 = new Product("Laptop", 5999, new String[]{"electronics", "new"});
-        Product p2 = new Product("Mouse", 199, new String[]{"electronics", "sale"});
-        Product p3 = new Product("Keyboard", 499, new String[]{"electronics", "sale"});
-        Product p4 = new Product("Monitor", 2499, new String[]{"electronics"});
-        
-        Product[] products = {p1, p2, p3, p4};
-        
-        System.out.println("Produkter på tilbud:");
-        for (Product p : products) {
-            if (p.hasTag("sale")) {
-                p.printInfo();
-            }
-        }
-        
-        System.out.println("\nDyreste produkt:");
-        Product expensive = findMostExpensive(products);
-        expensive.printInfo();
-        
-        // Ekstra udfordring
-        System.out.println();
-        findProductsInPriceRange(products, 200, 1000);
-    }
-}
-```
-
-</details>
